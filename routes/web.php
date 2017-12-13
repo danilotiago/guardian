@@ -15,13 +15,12 @@ Route::get('/', function () {
     return redirect()->route('login');
 });
 
-Route::middleware('auth')->prefix('admin')->name('admin.')->group(function(){
+Route::middleware('auth')->prefix('admin')->group(function(){
 
-    Route::get('/', 'AdminController@index')->name('index');
+    Route::get('/', 'AdminController@index')->name('admin.index');
     Route::get('guardian', 'GuardianController@index')->name('guardian');
+    Route::post('guardian/roles/store', 'GuardianController@roleStore')->name('guardian.roles.store');
 
-    Route::resource('roles', 'RolesController');
-    Route::resource('permissions', 'PermissionsController');
 });
 
 Auth::routes();

@@ -37,7 +37,7 @@
                 <a href="#"><i class="fa fa-sitemap fa-fw"></i> Configurações<span class="fa arrow"></span></a>
                 <ul class="nav nav-second-level">
                     <li>
-                        <a href="{{ route('admin.guardian') }}">Segurança</a>
+                        <a href="{{ route('guardian') }}">Segurança</a>
                     </li>
                 </ul>
                 <!-- /.nav-second-level -->

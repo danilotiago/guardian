@@ -6,7 +6,7 @@
             <div class="col-lg-12">
                 <h1 class="page-header">Funções e permissões</h1>
                 <div class="btn-group btn-group-justified">
-                    <a href="#" class="btn btn-primary">Criar Funções</a>
+                    <a class="btn btn-primary" data-toggle="modal" data-target="#create_role">Criar Funções</a>
                     <a href="#" class="btn btn-success">Criar Permissões</a>
                     <a href="#" class="btn btn-warning">Relacionar funções e permissões</a>
                 </div>
@@ -37,11 +37,9 @@
                                 <div class="panel-body">
 
                                     @foreach($role->permissions as $permission)
-
                                         <button type="button" class="btn btn-default" style="margin: 5px 5px 5px 5px;" data-container="body" data-toggle="popover" data-placement="top" data-content="{{ $permission->description }}">
                                             {{ $permission->name }}
                                         </button>
-
                                     @endforeach
 
                                 </div>
@@ -89,6 +87,8 @@
             </div>
         </div>
     </div>
+
+    @include('guardian.modals')
 
     @push('popover')
         <script>

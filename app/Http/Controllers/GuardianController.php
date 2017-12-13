@@ -2,9 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\RolesRequest;
 use App\Permission;
 use App\Role;
-use Illuminate\Http\Request;
 
 class GuardianController extends Controller
 {
@@ -19,5 +19,10 @@ class GuardianController extends Controller
             'permissions',
             'groupsPermissions'
         ]));
+    }
+
+    public function roleStore(RolesRequest $request)
+    {
+        return $request->all();
     }
 }
