@@ -5,6 +5,12 @@
         <div class="row">
             <div class="col-lg-12">
                 <h1 class="page-header">Funções e permissões</h1>
+                <div class="btn-group btn-group-justified">
+                    <a href="#" class="btn btn-primary">Criar Funções</a>
+                    <a href="#" class="btn btn-success">Criar Permissões</a>
+                    <a href="#" class="btn btn-warning">Relacionar funções e permissões</a>
+                </div>
+                <br>
             </div>
             <!-- /.col-lg-12 -->
         </div>

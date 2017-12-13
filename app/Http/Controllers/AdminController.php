@@ -12,17 +12,4 @@ class AdminController extends Controller
     {
         return view('admin.index');
     }
-
-    public function seguranca()
-    {
-        $roles             = Role::orderBy('name', 'ASC')->get();
-        $permissions       = Permission::orderBy('name', 'ASC')->get();
-        $groupsPermissions = Permission::getGroupsOfPermissions();
-
-        return view('admin.seguranca', compact([
-            'roles',
-            'permissions',
-            'groupsPermissions'
-        ]));
-    }
 }

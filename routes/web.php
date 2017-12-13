@@ -18,7 +18,7 @@ Route::get('/', function () {
 Route::middleware('auth')->prefix('admin')->name('admin.')->group(function(){
 
     Route::get('/', 'AdminController@index')->name('index');
-    Route::get('seguranca', 'AdminController@seguranca')->name('seguranca');
+    Route::get('guardian', 'GuardianController@index')->name('guardian');
 
     Route::resource('roles', 'RolesController');
     Route::resource('permissions', 'PermissionsController');
