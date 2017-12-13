@@ -15,10 +15,14 @@ class AdminController extends Controller
 
     public function seguranca()
     {
-        $roles = Role::with('permissions')->orderBy('name', 'ASC')->get();
+        $roles             = Role::orderBy('name', 'ASC')->get();
+        $permissions       = Permission::orderBy('name', 'ASC')->get();
+        $groupsPermissions = Permission::getGroupsOfPermissions();
+
         return view('admin.seguranca', compact([
             'roles',
-            'permissions'
+            'permissions',
+            'groupsPermissions'
         ]));
     }
 }

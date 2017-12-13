@@ -55,10 +55,30 @@
                 </h4>
             </div>
             <div class="panel-body">
-                @foreach($role->permissions as $permission)
-                    <button type="button" class="btn btn-default" style="margin: 5px 5px 5px 5px;" data-container="body" data-toggle="popover" data-placement="top" data-content="{{ $permission->description }}">
-                        {{ $permission->name }}
-                    </button>
+                {{--lista os grupos das permissoes--}}
+                @foreach($groupsPermissions as $key => $group)
+                <div class="col-lg-12">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h4 class="panel-title">
+                                <a data-toggle="collapse" data-parent="#accordion" href="#collapse-group-permissions-{{$key}}">Manter {{ $group->group }}</a>
+                            </h4>
+                        </div>
+                        <div id="collapse-group-permissions-{{$key}}" class="panel-collapse collapse">
+                            <div class="panel-body">
+
+                                @foreach($permissions as $permission)
+                                    @if($permission->group == $group->group)
+                                        <button type="button" class="btn btn-default" style="margin: 5px 5px 5px 5px;" data-container="body" data-toggle="popover" data-placement="top" data-content="{{ $permission->description }}">
+                                            {{ $permission->name }}
+                                        </button>
+                                    @endif
+                                @endforeach
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
                 @endforeach
             </div>
         </div>
