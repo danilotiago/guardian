@@ -12,9 +12,18 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return redirect()->route('login');
+});
+
+Route::middleware('auth')->prefix('admin')->name('admin.')->group(function(){
+
+    Route::get('/', 'AdminController@index')->name('index');
+    Route::get('seguranca', 'AdminController@seguranca')->name('seguranca');
+
+    Route::resource('roles', 'RolesController');
+    Route::resource('permissions', 'PermissionsController');
 });
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+
